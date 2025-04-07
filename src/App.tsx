@@ -1,10 +1,14 @@
-// src/App.tsx
 import { useState, KeyboardEvent, useEffect } from "react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { fetchUserRepos, fetchCommitActivity } from "./services/githubApi";
-import { RepoList } from "./components/RepoList";
+import { Input } from "@/components/ui/input.tsx";
+import { Button } from "@/components/ui/button.tsx";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card.tsx";
+import { fetchUserRepos, fetchCommitActivity } from "./services/githubApi.ts";
+import { RepoList } from "./components/RepoList.tsx";
 import {
   LineChart,
   Line,
@@ -15,11 +19,11 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { Repo, CommitActivity } from "./types/github";
-import { Skeleton } from "@/components/ui/skeleton";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Repo, CommitActivity } from "./types/github.ts";
+import { Skeleton } from "@/components/ui/skeleton.tsx";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert.tsx";
 import { GithubIcon, Sun, Moon } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@/components/ui/separator.tsx";
 
 function App() {
   const [username, setUsername] = useState("");
