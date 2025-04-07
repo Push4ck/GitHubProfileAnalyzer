@@ -11,7 +11,8 @@
     },
     "strict": true,
     "jsx": "react-jsx",
-    "allowImportingTsExtensions": true
+    "allowImportingTsExtensions": true,
+    "noEmit": true
   },
   "include": ["src"]
 }
