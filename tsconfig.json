@@ -3,14 +3,15 @@
     "target": "ESNext",
     "useDefineForClassFields": true,
     "allowSyntheticDefaultImports": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "module": "ESNext", // or "node16" for consistency with moduleResolution
+    "moduleResolution": "node16", // or "nodenext" or "bundler"
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     },
     "strict": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "allowImportingTsExtensions": true // Added this line
   },
   "include": ["src"]
 }
