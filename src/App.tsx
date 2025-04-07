@@ -54,12 +54,21 @@ function App() {
       const fetchedRepos = await fetchUserRepos(username);
       setRepos(fetchedRepos);
 
-      if (fetchedRepos.length > 0) {
+      if (fetchedRepos && fetchedRepos.length > 0) {
         const commitActivity: CommitActivity = await fetchCommitActivity(
           username,
           fetchedRepos[0].name
         );
-        setWeeklyCommits(commitActivity.all);
+
+        if (commitActivity?.all) {
+          setWeeklyCommits(commitActivity.all);
+        } else {
+          setWeeklyCommits([]);
+          setError("Commit Activity data is incomplete.");
+        }
+      } else {
+        setWeeklyCommits([]);
+        setError("No repositories found for this user.");
       }
     } catch (err: unknown) {
       if (err instanceof Error) {
@@ -150,38 +159,36 @@ function App() {
             <div className="space-y-6">
               <RepoList repos={repos} />
               <Separator className="border-custom" />
-              {weeklyCommits.length > 0 && (
-                <Card className="shadow-lg border border-custom">
-                  <CardHeader>
-                    <CardTitle>Weekly Commit Activity</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ResponsiveContainer width="100%" height={300}>
-                      <LineChart
-                        data={weeklyCommits.map((commits, index) => ({
-                          week: index + 1,
-                          commits,
-                        }))}
-                      >
-                        <CartesianGrid
-                          strokeDasharray="3 3"
-                          className="stroke-custom"
-                        />
-                        <XAxis dataKey="week" className="stroke-custom" />
-                        <YAxis className="stroke-custom" />
-                        <Tooltip />
-                        <Legend />
-                        <Line
-                          type="monotone"
-                          dataKey="commits"
-                          className="stroke-primary-custom"
-                          strokeWidth={2}
-                        />
-                      </LineChart>
-                    </ResponsiveContainer>
-                  </CardContent>
-                </Card>
-              )}
+              <Card className="shadow-lg border border-custom">
+                <CardHeader className="flex flex-row justify-between items-center">
+                  <CardTitle>Commit Activity</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ResponsiveContainer width="100%" height={300}>
+                    <LineChart
+                      data={weeklyCommits.map((commits, index) => ({
+                        week: index + 1,
+                        commits,
+                      }))}
+                    >
+                      <CartesianGrid
+                        strokeDasharray="3 3"
+                        className="stroke-custom"
+                      />
+                      <XAxis dataKey="week" className="stroke-custom" />
+                      <YAxis className="stroke-custom" />
+                      <Tooltip />
+                      <Legend />
+                      <Line
+                        type="monotone"
+                        dataKey="commits"
+                        className="stroke-primary-custom"
+                        strokeWidth={2}
+                      />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </CardContent>
+              </Card>
             </div>
           )}
         </div>

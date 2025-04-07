@@ -42,5 +42,15 @@ export async function fetchCommitActivity(
     );
   }
   const data = await response.json();
-  return data as CommitActivity;
+
+  if (!data || !data.all || !data.owner) {
+    throw new Error(
+      `Incomplete commit activity data for ${username}/${repoName}`
+    );
+  }
+
+  return {
+    all: data.all,
+    owner: data.owner,
+  };
 }
