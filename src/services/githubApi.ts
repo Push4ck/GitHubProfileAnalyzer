@@ -1,4 +1,4 @@
-import { Repo, Commit, CommitActivity } from "../types/github";
+import { Repo, Commit, CommitActivity } from "../types/github.ts";
 
 export async function fetchUserRepos(username: string): Promise<Repo[]> {
   const response = await fetch(
