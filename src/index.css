@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+:root {
+  /* Light mode colors */
+  --bg-light: #f9fafb;
+  --text-light: #111827;
+  --primary-light: #3b82f6;
+  --secondary-light: #6b7280;
+  --accent-light: #e0f2fe;
+  --border-light: #d1d5db;
+}
+
+.dark {
+  /* Dark mode colors */
+  --bg-dark: #1f2937;
+  --text-dark: #e5e7eb;
+  --primary-dark: #60a5fa;
+  --secondary-dark: #9ca3af;
+  --accent-dark: #1e40af;
+  --border-dark: #374151;
+}
+
+body {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+.dark body {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.border-custom {
+  border-color: var(--border-light);
+}
+
+.dark .border-custom {
+  border-color: var(--border-dark);
+}
+
+.bg-primary-custom {
+  background-color: var(--primary-light);
+  color: white;
+}
+
+.dark .bg-primary-custom {
+  background-color: var(--primary-dark);
+  color: white;
+}
+
+.bg-secondary-custom {
+  background-color: var(--secondary-light);
+  color: white;
+}
+
+.dark .bg-secondary-custom {
+  background-color: var(--secondary-dark);
+  color: white;
+}
+
+.bg-accent-custom {
+  background-color: var(--accent-light);
+}
+
+.dark .bg-accent-custom {
+  background-color: var(--accent-dark);
+}
+
+.stroke-custom {
+  stroke: var(--border-light);
+}
+
+.dark .stroke-custom {
+  stroke: var(--border-dark);
+}
+
+.stroke-primary-custom {
+  stroke: var(--primary-light);
+}
+
+.dark .stroke-primary-custom {
+  stroke: var(--primary-dark);
+}
+
+/* Light/Dark Mode toggle button styles */
+.light-dark-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem;
+  border: 1px solid var(--border-light);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  background-color: transparent;
+  transition: border-color 0.3s;
+}
+
+.dark .light-dark-toggle {
+  border-color: var(--border-dark);
+}
