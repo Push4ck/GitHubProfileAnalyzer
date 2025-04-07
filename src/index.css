@@ -98,3 +98,17 @@ body {
 .dark .light-dark-toggle {
   border-color: var(--border-dark);
 }
+
+.select-viewport::-webkit-scrollbar {
+  -webkit-appearance: auto;
+  width: 8px; /* Adjust as needed */
+}
+
+.select-viewport::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2); /* Adjust as needed */
+  border-radius: 4px; /* Adjust as needed */
+}
+
+.select-viewport {
+  scrollbar-width: thin; /* For Firefox */
+}
