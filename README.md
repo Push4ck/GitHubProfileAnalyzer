@@ -2,6 +2,9 @@
 
 A React application designed to analyze GitHub profiles, providing insights into repository information and commit activity. Features a user-friendly light/dark mode toggle and a clean, professional interface.
 
+![light](https://github.com/user-attachments/assets/09b4eec7-ac52-4152-990b-57a084aeef85)
+![dark](https://github.com/user-attachments/assets/95e31510-aa50-4147-b865-990b8ef1ff55)
+
 ## Table of Contents
 
 - [GitHub Profile Analyzer](#github-profile-analyzer)
